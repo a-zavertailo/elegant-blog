@@ -1,1 +1,1 @@
-# "Elegant-blog" - Custom design blog based on angularJS
+# "Elegant-blog" - AngularJS blog SPA with custom design

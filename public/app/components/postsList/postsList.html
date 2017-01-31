@@ -1,0 +1,100 @@
+
+<div class="container-fluid posts-list-root">
+    <div class="row">
+
+        <!-- Content section-->
+
+        <div class="col-xs-12 col-md-8">
+            <div class="post-list">
+                <div class="post"
+                     data-ng-repeat="post in vm.postsList">
+                    <a href="#/post/{{post.id}}">
+                        <div class="post-poster">
+                            <img data-ng-src="{{post.posterSrc}}">
+                            <a class="post-category" href="#/category/{{post.category}}">{{vm.categories[post.category]}}</a>
+                            <div class="post-tags-list">
+                                <a class="tag-item"
+                                      href="#/tag/{{tagKey}}"
+                                      data-ng-repeat="tagKey in post.tags">{{vm.tags[tagKey]}}</a>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="post-description">
+                        <h3 class="post-title"><a href="#/post/{{post.id}}">{{post.title}}</a></h3>
+                        <p class="post-preview">{{post.preview}}</p>
+                        <div class="post-info-bar">
+                            <span class="post-date">{{post.date}}</span>
+                            <span class="post-author hidden-xs">{{post.author}}</span>
+                            <span class="post-comments">{{post.commentsNum}} Comments</span>
+                            <a class="post-read-more hidden-xs" href="#/post/{{post.id}}">Read more...</a>
+                        </div>
+                    </div>
+                    <div class="post-separator"
+                         data-ng-hide="$last"></div>
+                </div>
+                <div class="pagination" style="height: 60px"></div>
+            </div>
+        </div>
+
+        <!-- Sidebar section-->
+
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <aside class="sidebar">
+                <div class="sidebar-block">
+                    <div class="wide-btn">Suggest own article</div>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Categories</span>
+                    </h3>
+                    <nav class="categories-nav">
+                        <ul>
+                            <li data-ng-repeat="(catKey, category) in vm.categories">
+                                <a class="link" href="#/category/{{catKey}}">{{category}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Popular tags</span>
+                    </h3>
+                    <div>
+                        <a class="tag-item"
+                           href="#/tag/{{tagKey}}"
+                           data-ng-repeat="(tagKey, tag) in vm.tags">{{tag}}</a>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Popular posts</span>
+                    </h3>
+                    <div class="popular-posts">
+                        <a class="link"
+                           href="#/post/{{post.id}}"
+                           data-ng-repeat="post in vm.popularPostsList">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <img data-ng-src="{{post.posterSrc}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <h3 class="post-title">{{post.title}}</h3>
+                                            <span class="post-date">{{post.date}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="wide-btn">Subscribe</div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

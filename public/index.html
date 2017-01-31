@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="blogApp">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>qwes.org home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+</head>
+<body data-ng-controller="mainCtrl as mainVm">
+    <div id="menu" class="full-menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="menu-block">
+                        <h3 class="title-line">
+                            <span class="title">Menu</span>
+                        </h3>
+                        <ul>
+                            <li>
+                                <a href="#/" class="link"
+                                   data-ng-click="mainVm.menuState.opened = false; mainVm.slideout.close();">Home</a>
+                            </li>
+                            <li>
+                                <a href="#/" class="link active"
+                                   data-ng-click="mainVm.menuState.opened = false; mainVm.slideout.close();">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#/about" class="link"
+                                   data-ng-click="mainVm.menuState.opened = false; mainVm.slideout.close();">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-block">
+                        <h3 class="title-line">
+                            <span class="title">Categories</span>
+                        </h3>
+                        <ul>
+                            <li data-ng-repeat="(catKey, category) in mainVm.categories">
+                                <a class="link"
+                                   href="#/category/{{catKey}}"
+                                   data-ng-click="mainVm.menuState.opened = false; mainVm.slideout.close();">{{category}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-block">
+                        <h3 class="title-line">
+                            <span class="title">Popular tags</span>
+                        </h3>
+                        <ul>
+                            <li data-ng-repeat="(tagKey, tag) in mainVm.tags">
+                                <a class="link"
+                                   href="#/tag/{{tagKey}}"
+                                   data-ng-click="mainVm.menuState.opened = false; mainVm.slideout.close();">{{tag}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="panel" class="main-panel">
+        <header>
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <div class="header-logo"></div>
+                            <nav class="header-nav hidden-xs hidden-sm">
+                                <ul>
+                                    <li>
+                                        <a href="#/" class="link">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#/" class="link active">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#/about" class="link">About</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="menu-btn visible-xs visible-sm">
+                                <menu-switch-btn data-menu-state="mainVm.menuState"
+                                                 data-title="Menu"
+                                                 data-ng-click="mainVm.menuState.opened = !mainVm.menuState.opened; mainVm.slideout.toggle();"></menu-switch-btn>
+                            </div>
+                        </div>
+                        <div class="col-md-4 hidden-xs hidden-sm">
+                            <div class="search-bar">
+                                <div class="search-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control search-field"/>
+                                        <span class="input-group-btn">
+                                            <div class="search-btn"></div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="wrapper">
+                <ui-view></ui-view>
+            </div>
+        </main>
+        <footer>
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="footer-content">
+                                <div>
+                                    <span class="logo"></span>
+                                </div>
+                                <nav class="footer-nav hidden-xs">
+                                    <ul>
+                                        <li>
+                                            <a href="#/" class="link">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="#/about" class="link">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="#/" class="link">Forum</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div>
+                                    <span class="copyright">© 2017 - qwes.org. All Rights Reserved. Designed & Developed by
+                                        <a href="https://github.com/a-zavertailo" class="developer-link">a-zavertailo</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--<script src="/node_modules/angular/angular.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+    <!--<script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+
+    <script src="./app/build.js"></script>
+
+    <script></script>
+</body>
+</html>

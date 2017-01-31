@@ -1,0 +1,26 @@
+{
+  "name": "elegant-blog",
+  "version": "1.0.0",
+  "description": "Blog about electronics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozadev/elegant-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "electornics"
+  ],
+  "author": "oza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozadev/elegant-blog/issues"
+  },
+  "homepage": "https://github.com/ozadev/elegant-blog#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

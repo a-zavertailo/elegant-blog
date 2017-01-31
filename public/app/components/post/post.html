@@ -1,0 +1,92 @@
+<div class="container-fluid posts-list-root">
+    <div class="row">
+
+        <!-- Content section-->
+
+        <div class="col-xs-12 col-md-8">
+            <div class="post post-fully">
+                <div class="post-description post-header">
+                    <h3 class="post-title">{{vm.post.title}}</h3>
+                    <div class="post-info-bar">
+                        <span class="post-date">{{vm.post.date}}</span>
+                        <span class="post-author">{{vm.post.author}}</span>
+                        <span class="post-comments">{{vm.post.commentsNum}} Comments</span>
+                    </div>
+                </div>
+                <div class="post-poster">
+                    <img data-ng-src="{{vm.post.posterSrc}}">
+                    <a class="post-category" href="#/category/{{vm.post.category}}">{{vm.categories[vm.post.category]}}</a>
+                    <div class="post-tags-list">
+                        <a class="tag-item"
+                              href="#/tag/{{tagKey}}"
+                              data-ng-repeat="tagKey in vm.post.tags">{{vm.tags[tagKey]}}</a>
+                    </div>
+                </div>
+                <div class="post-description post-content">
+                    <p data-ng-bind-html="vm.sce.trustAsHtml(vm.post.content)"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar section-->
+
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <aside class="sidebar">
+                <div class="sidebar-block">
+                    <div class="wide-btn">Suggest own article</div>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Categories</span>
+                    </h3>
+                    <nav class="categories-nav">
+                        <ul>
+                            <li data-ng-repeat="(catKey, category) in vm.categories">
+                                <a class="link" href="#/category/{{catKey}}">{{category}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Popular tags</span>
+                    </h3>
+                    <div>
+                        <a class="tag-item"
+                           href="#/tag/{{tagKey}}"
+                           data-ng-repeat="(tagKey, tag) in vm.tags">{{tag}}</a>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <h3 class="title-line">
+                        <span class="title">Popular posts</span>
+                    </h3>
+                    <div class="popular-posts">
+                        <a class="link"
+                           href="#/post/{{post.id}}"
+                           data-ng-repeat="post in vm.popularPostsList">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <img data-ng-src="{{post.posterSrc}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <h3 class="post-title">{{post.title}}</h3>
+                                            <span class="post-date">{{post.date}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="wide-btn">Subscribe</div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "asm": "asm",
+  "cpp": "c++",
+  "digital-design": "digital design",
+  "fpga": "FPGA",
+  "programming": "programming",
+  "arm": "ARM"
+}

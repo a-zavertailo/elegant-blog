@@ -1,0 +1,90 @@
+$tablet-width:   768px; // bootstrap screen-sm-min
+$laptop-width:   992px; // bootstrap screen-md-min
+$desktop-width:  1200px; // bootstrap screen-lg-min
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: #{$laptop-width}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin menu-switcher($width, $height, $line-width, $line-height, $line-offset, $lines-offset-top, $title-offset-bottom, $color,
+                    $background-color, $hover-background-color, $hover-time) {
+  .menu-switcher {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    transition: $hover-time;
+    background-color: $background-color;
+    width: $width;
+    height: $height;
+    .line-top, .line-middle, .line-bottom {
+      transition: all 0.2s ease-in;
+      position: absolute;
+      width: $line-width;
+      height: $line-height;
+      background-color: $color;
+    }
+    &.menu-open {
+      .line-top, .line-middle, .line-bottom {
+        left: ($width - $line-width) / 2;
+      }
+      .line-top {
+        top: $lines-offset-top;
+      }
+      .line-middle {
+        top: $lines-offset-top + ($line-height + $line-offset);
+      }
+      .line-bottom {
+        top: $lines-offset-top + 2 * ($line-height + $line-offset);
+      }
+    }
+    &.menu-close {
+      .line-top, .line-middle, .line-bottom {
+        top: 12px + $lines-offset-top;
+        left: ($width - $line-width) / 2;
+      }
+      .line-top {
+        transform: rotate(-45deg);
+      }
+      .line-middle {
+        transform: rotate(-45deg);
+      }
+      .line-bottom {
+        transform: rotate(45deg);
+      }
+    }
+    .title {
+      position: absolute;
+      font-family: 'Open Sans', sans-serif;
+      width: inherit;
+      bottom: $title-offset-bottom;
+      font-size: 12px;
+      line-height: 12px;
+      color: $color;
+      text-align: center;
+      transition: all 0.2s ease-in;
+    }
+    &.menu-close {
+      .title {
+        font-size: 0;
+      }
+    }
+    &:hover {
+      background-color: $hover-background-color;
+    }
+  }
+}
+
